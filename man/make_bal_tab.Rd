@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_bal_tab.R
 \name{make_bal_tab}
 \alias{make_bal_tab}
-\title{Make covariate balance}
+\title{Make covariate balance table}
 \usage{
 make_bal_tab(X, z, m, cov_names)
 }
@@ -21,7 +21,7 @@ Table displaying means of the treated and control groups before and after matchi
     as well as standardized differences before and after matching
 }
 \description{
-Make covariate balance
+Make covariate balance table
 }
 \examples{
 # Generate some data

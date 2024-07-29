@@ -64,8 +64,8 @@ triples_st <- function (cost, z, solver = "rrelaxiv")
     old_names <- 1:length(z)
   }
   # Reorder cost matrix if not in same order as z
-  cost <- cost[old_names[z == 1], ]
-  cost <- cost[, old_names[z == 0]]
+  cost <- cost[old_names[z == 1], , drop = FALSE]
+  cost <- cost[, old_names[z == 0], drop = FALSE]
 
   # Put treated first, then number 1,...,Sample Size
   o <- order(1-z)

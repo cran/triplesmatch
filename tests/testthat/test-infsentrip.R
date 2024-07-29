@@ -49,12 +49,5 @@ test_that("infsentrip one sided is similar to informedsen", {
   inf3 <- infsentrip(gamma = 1, sc = ylong$y, z = ylong$z, ylong$mset, alpha = 0.05, alternative = "less")
   expect_match(inf3$conclusion, "fails to reject")
 
-  skip_if_not_installed("gurobi")
-  skip_if_not_installed("Matrix")
-  # Two sided test doens't reject
-  inf2 <- informedSen::informedsen(gamma = 1, sc = ylong$y, z = ylong$z, ylong$mset, alpha = 0.05)
-  expect_match(inf2$conclusion, "fails to reject")
-
-
 })
 

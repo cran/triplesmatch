@@ -15,7 +15,7 @@ triplesIP(z, cost, mt, mc, time_limit = Inf, threads = 1, verbose = 0)
 
 \item{mc}{The number of control units to be used}
 
-\item{time_limit}{The amount of time before the solver should abort}
+\item{time_limit}{The amount of time in seconds before the solver should abort}
 
 \item{threads}{The number of threads that should be allocated}
 

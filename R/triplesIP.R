@@ -10,7 +10,7 @@
 #' @param cost Matrix of costs. Rows correspond to treated units; columns to controls
 #' @param mt The number of treated units to be used
 #' @param mc The number of control units to be used
-#' @param time_limit The amount of time before the solver should abort
+#' @param time_limit The amount of time in seconds before the solver should abort
 #' @param threads The number of threads that should be allocated
 #' @param verbose Whether the output of the 'gurobi' solver should be printed. 0 if not, 1 if so
 #'
@@ -56,6 +56,21 @@ triplesIP <- function(z, cost, mt, mc, time_limit = Inf, threads = 1, verbose = 
   stopifnot(nc == ncol(cost))
 
   ntrip <- (mt+mc) / 3
+
+  if(nt == 0) {
+    warning("There are no treated individuals to be matched in this stratum.")
+    return(NULL)
+  }
+  if(nc == 0) {
+    warning("There are no controls to be matched in this stratum.")
+    return(NULL)
+  }
+  if(ntrip == 0) {
+    warning("There are not enough individuals to match in triples.")
+    return(NULL)
+  }
+
+
   # Each person has an indicator for each triple,
   #     and then there is a slack variable for each triple
   nvar <- n * ntrip + ntrip

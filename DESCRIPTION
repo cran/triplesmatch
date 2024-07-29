@@ -2,8 +2,8 @@ Package: triplesmatch
 Type: Package
 Title: Match Triples Consisting of Two Controls and a Treated Unit or
         Vice Versa
-Version: 1.0.0
-Authors@R: c(person("Katherine", "Brumberg", role = c("aut", "cre","cph"), email = "kbrum@wharton.upenn.edu"))
+Version: 1.1.0
+Authors@R: c(person("Katherine", "Brumberg", role = c("aut", "cre","cph"), email = "kbrum@umich.edu"))
 Description: Attain excellent covariate balance by matching two treated units
     and one control unit or vice versa within strata. Using such triples, as
     opposed to also allowing pairs of treated and control units, 
@@ -22,16 +22,15 @@ Description: Attain excellent covariate balance by matching two treated units
     the instructions at <https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: rcbalance, rlemon, stats, graphics, MASS, optmatch, utils,
         rlang
 Suggests: rrelaxiv, testthat (>= 3.0.0), gurobi, sensitivityfull,
         informedSen, Matrix
 Config/testthat/edition: 3
-Additional_repositories: https://errickson.net/rrelaxiv/
 NeedsCompilation: no
-Packaged: 2023-10-19 15:36:58 UTC; katherine
+Packaged: 2024-07-29 15:05:40 UTC; katherine
 Author: Katherine Brumberg [aut, cre, cph]
-Maintainer: Katherine Brumberg <kbrum@wharton.upenn.edu>
+Maintainer: Katherine Brumberg <kbrum@umich.edu>
 Repository: CRAN
-Date/Publication: 2023-10-23 15:40:02 UTC
+Date/Publication: 2024-07-29 16:50:02 UTC

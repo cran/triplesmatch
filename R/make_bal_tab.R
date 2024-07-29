@@ -1,4 +1,4 @@
-#' Make covariate balance
+#' Make covariate balance table
 #'
 #' @inheritParams boxplot_matches
 #' @param X Covariate matrix
@@ -45,9 +45,11 @@ make_bal_tab <- function(X, z, m, cov_names) {
   N1 <- sum(mX$N == 1)
   N2 <- sum(mX$N == 2)
   # Weighting the control means by the proportion of treated individuals in each type of triple
-  m0w<-(N1 * mean0N1 + 2 * mean0N2 * N2) / (N1 + N2 * 2)
-  o <- cbind(m1, m0, m0w, (m1-m0) / s, (m1-m0w) / s)
-  colnames(o) <- c("Treated", "AllC", "MatchedC", "stdBefore", "stdAfter")
+  m0w <- (N1 * mean0N1 + 2 * mean0N2 * N2) / (N1 + N2 * 2)
+  # If not all treated are used, then treated mean changes after matching as well
+  m1w <- apply(mX[mX$z == 1, 6:(dim(mX)[2])], 2, mean, na.rm = TRUE)
+  o <- cbind(m1, m0, m0w, m1w, (m1-m0) / s, (m1w-m0w) / s)
+  colnames(o) <- c("Treated", "AllC", "MatchedC", "MatchedT", "stdBefore", "stdAfter")
   rownames(o) <- c(cov_names)
-  o
+  return(o)
 }
